@@ -20,26 +20,10 @@
 </template>
 
 <script setup lang="ts">
-const accounts = [
-  {
-    id: 1,
-    Account: 190089881234,
-    Avalable_balance: '$20,000',
-    Branch: 'New York',
-  },
-  {
-    id: 2,
-    Account: 89881234,
-    Avalable_balance: '$12,000',
-    Branch: 'New York',
-  },
-  {
-    id: 3,
-    Account: 190012342222,
-    Avalable_balance: '$230,000',
-    Branch: 'New York',
-  },
-];
+import { useCardStore } from '@/stores/cardStore';
+
+const cardStore = useCardStore();
+const accounts = computed(() => cardStore.cards);
 </script>
 
 <style scoped>
