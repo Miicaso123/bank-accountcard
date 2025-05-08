@@ -2,7 +2,7 @@
   <div class="account">
     <div class="container">
       <div v-if="isMobile" class="page">
-        <AccHeader/>
+        <AccHeader />
         <div class="user">
           <img src="/images/Avatar.png" alt="avatar" />
           <p>{{ userName || '...' }}</p>
@@ -34,6 +34,14 @@ onMounted(() => {
   if (name) {
     userName.value = decodeURIComponent(name);
   }
+
+  window.parent.postMessage(
+    {
+      type: 'SAVE_ROUTE',
+      route: 'https://kbankaccountcard.netlify.app/',
+    },
+    '*',
+  );
 });
 
 onUnmounted(() => {
