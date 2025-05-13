@@ -25,15 +25,18 @@ const checkScreen = () => {
   isMobile.value = window.innerWidth <= 500;
 };
 
+const route = useRoute();
+
 onMounted(() => {
   checkScreen();
   window.addEventListener('resize', checkScreen);
 
-  const params = new URLSearchParams(window.location.search);
-  const name = params.get('name');
-  if (name) {
-    userName.value = decodeURIComponent(name);
-  }
+  // const params = new URLSearchParams(window.location.search);
+  // const name = params.get('name');
+  // if (name) {
+  //   userName.value = decodeURIComponent(name);
+  // }
+
 
   window.parent.postMessage(
     {
